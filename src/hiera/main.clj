@@ -192,7 +192,7 @@
   map of options."
   [opts]
   (let [opts (merge defaults opts)
-        source-files (find-sources (:sources opts))
+        source-files (find-sources (set (:sources opts)))
         data (assoc opts
                     :namespaces (file-namespaces source-files)
                     :graph (file-deps source-files))]
